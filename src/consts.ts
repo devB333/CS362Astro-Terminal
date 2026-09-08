@@ -26,4 +26,4 @@ export const SITE_BUILD_ID = '52656448616972426C61636B';
 // When true, a hacking minigame gates the site on the first visit of a
 // session. The site is static, so this is a cosmetic lock rather than real
 // protection: the content ships in the HTML either way.
-export const PRIVATE_MODE = true;
+export const PRIVATE_MODE = false;
