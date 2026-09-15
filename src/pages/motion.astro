@@ -1,0 +1,24 @@
+---
+import '../styles/motion.css';
+---
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Motion Lab · Sword controller</title></head>
+  <body>
+    <main>
+      <header><a href="/motion">✳ MOTION LAB</a><span>HOPHACKS ’26 / CONTROLLER PROTOTYPE</span><b id="connection">Connecting…</b></header>
+      <section class="intro"><p class="eyebrow">YOUR PHONE. YOUR SWORD.</p><h1>Put motion to the test<span>.</span></h1><p>Explore live rotation and see where inertial position tracking falls short.</p></section>
+      <section id="desktop" class="layout">
+        <div class="stage-card"><div class="stage-label"><b>LIVE VIEW</b><span id="mode-label">Rotation · fixed handle</span></div><div id="scene"></div><div class="stage-bottom"><span><i></i> Phone’s top edge → blade tip</span><span>1 grid square = 1 metre</span></div></div>
+        <aside>
+          <article><p class="eyebrow">01 / CONNECT YOUR PHONE</p><canvas id="qr" aria-label="Phone pairing QR code"></canvas><p>Scan with your phone camera. Keep this page open.</p><input id="join-url" aria-label="Phone controller URL" readonly /><button id="copy">Copy controller link</button><p id="https-note" class="note"></p></article>
+          <article><p class="eyebrow">02 / EXPERIMENT</p><label class="toggle"><input id="position-mode" type="checkbox" /> Show estimated position</label><p class="note">Acceleration integrated twice. No camera tracking, no artificial centering, and no accuracy guarantee. Drift is part of this experiment.</p><button id="reset">Recenter & reset position</button><button id="demo" class="secondary">Try simulated motion</button></article>
+        </aside>
+      </section>
+      <section id="phone" hidden><article><p class="eyebrow">PHONE CONTROLLER</p><h2>Ready your blade.</h2><p>Hold your phone upright, top edge up and screen facing you. Tap enable, allow motion access, then recenter. Keep this screen awake.</p><button id="enable">Enable motion sensors</button><button id="phone-reset" class="secondary">Recenter & reset position</button><p id="sensor-status" role="status">Sensors have not started.</p><div class="pulse-orb">↗</div><p class="note">Try small wrist rotations first. Position is an experimental estimate, not measured hand location.</p></article></section>
+      <section class="metrics"><article><span>ORIENTATION α / β / γ</span><strong id="angles">— / — / —</strong><small>degrees · raw sensor angles</small></article><article><span>LINEAR ACCELERATION</span><strong id="accel">—</strong><small>m/s² · gravity excluded</small></article><article><span>ESTIMATED X / Y / Z</span><strong id="position">— / — / —</strong><small>metres · relative to reset</small></article><article><span>STREAM HEALTH</span><strong id="rate">Waiting</strong><small id="latency">No phone samples yet</small></article></section>
+      <footer><span>ROTATE → SLASH → RECENTER → REPEAT</span><span id="sample-status">Connect a phone to begin.</span></footer>
+    </main>
+    <script>import '../scripts/motion';</script>
+  </body>
+</html>

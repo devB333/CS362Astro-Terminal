@@ -1,4 +1,5 @@
 allowBuilds:
+  cloudflared: true
   esbuild: true
   workerd: true
 minimumReleaseAgeExclude:
